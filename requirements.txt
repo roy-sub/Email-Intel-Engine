@@ -1,1 +1,3 @@
 pytz
+html2text
+beautifulsoup4
