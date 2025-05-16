@@ -22,12 +22,11 @@ def transform_json(input_path):
             'messages': messages
         })
 
-    dir_path = os.path.dirname(input_path)
     base_name = os.path.splitext(os.path.basename(input_path))[0]
-    output_filename = f"transform_{base_name}.json"
-    db_folder = os.path.join(dir_path, 'database')
+    output_name = f"transform_{base_name}.json"
+    db_folder = 'database'
     os.makedirs(db_folder, exist_ok=True)
-    output_path = os.path.join(db_folder, output_filename)
+    output_path = os.path.join(db_folder, output_name)
 
     with open(output_path, 'w', encoding='utf-8') as f:
         json.dump(transformed, f, ensure_ascii=False, indent=2)
@@ -35,6 +34,6 @@ def transform_json(input_path):
     return output_path
 
 if __name__ == '__main__':
-    file_path = "subhraturning@gmail.com.json"
+    file_path = "database/subhraturning@gmail.com.json"
     output_path = transform_json(file_path)
     print(output_path)
