@@ -235,6 +235,24 @@ class ProspectFinder:
         
         return report
 
+def visualize(report):
+
+    print("\n=== COLD OPPORTUNITY ANALYSIS REPORT ===")
+    print(f"Total Prospects: {report['total_prospects']}")
+    
+    print("\nTypes:")
+    for type_name, count in report['type_distribution'].items():
+        print(f"  {type_name}: {count}")
+    
+    print("\nPROSPECTS:")
+    for i, prospect in enumerate(report['prospects'], 1):
+        print(f"\n{i}. {prospect['subject']}")
+        print(f"   Type: {prospect['type']} | Value: {prospect['value']} | Confidence: {prospect['confidence']:.2f}")
+        print(f"   Date: {prospect['date_time']}")
+        print(f"   Summary: {prospect['summary'][:100]}...")
+        print(f"   Why Cold: {prospect['why_went_cold'][:100]}...")
+        print(f"   Follow-up: {prospect['follow_up'][0]}")
+        print("   " + "-"*40)
 
 def find_prospects(user_id: str = "default_user", top_k: int = 10) -> Dict[str, Any]:
 
@@ -243,15 +261,17 @@ def find_prospects(user_id: str = "default_user", top_k: int = 10) -> Dict[str, 
     report = finder.generate_prospects_report(prospects)
     
     # Save report to file
-    os.makedirs("output", exist_ok=True)
-    with open(f"output/prospects_report_{user_id}.json", "w") as f:
+    os.makedirs("database", exist_ok=True)
+    with open(f"database/prospects_report_{user_id}.json", "w") as f:
         json.dump(report, f, indent=2)
     
     print(f"Found {len(prospects)} potential prospects for user {user_id}")
-    print(f"Report saved to output/prospects_report_{user_id}.json")
+    print(f"Report saved to database/prospects_report_{user_id}.json")
     
     return report
 
-user_id = "subhraturning"
-report = find_prospects(user_id)
-print(report)
+if __name__ == '__main__':
+    
+    user_id = "subhraturning"
+    report = find_prospects(user_id)
+    visualize(report)
