@@ -1,4 +1,6 @@
+from userManagement import login
 from typing import Dict, Any, Tuple
+from userManagement import add_user
 from gptAnalysis import find_prospects
 from vectorizeEmail import vectorize_emails
 from dataTransformation import transform_json
@@ -19,8 +21,11 @@ def onboarding(email_address: str, password: str) -> bool:
         # Step 3: Vectorize emails
         user_id = email_address.split('@')[0]
         vectorize_emails(email_data_file, user_id)
+
+        # Step 4 : Add user to the database
+        add_user(email_address, password, user_id)
         
-        # Step 4: Send account ready notification
+        # Step 5: Send account ready notification
         send_account_ready_notification(email_address)
         
         print(f"ONBOARDING COMPLETED FOR : {email_address}")
@@ -28,6 +33,15 @@ def onboarding(email_address: str, password: str) -> bool:
         
     except Exception as e:
         print(f"ONBOARDING FAILE FOR : {email_address}\n\nREASON: {str(e)}")
+        return False
+
+def login(email_address: str, password: str) -> bool:
+
+    try:
+        return login(email_address, password)
+        
+    except Exception as e:
+        print(f"Error during login: {str(e)}")
         return False
 
 def get_prospects(email_address: str, top_k: int = 10) -> Tuple[bool, Dict[str, Any]]:

@@ -5,7 +5,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi import FastAPI, BackgroundTasks, HTTPException
 
 # Import the wrapper functions directly from generator.py
-from generator import onboarding, get_prospects
+from generator import onboarding, login, get_prospects
 
 # Initialize FastAPI app
 app = FastAPI(
@@ -25,6 +25,10 @@ app.add_middleware(
 
 # Request models
 class OnboardingRequest(BaseModel):
+    email_address: EmailStr
+    password: str
+
+class LoginRequest(BaseModel):
     email_address: EmailStr
     password: str
 
@@ -60,6 +64,23 @@ async def onboarding_endpoint(request: OnboardingRequest, background_tasks: Back
         "message": "✨ Your AI-powered opportunity discovery journey has begun! ✨\n\nOur system is setting up your account to uncover valuable missed opportunities. This process may take some time depending on the size of your inbox.\n\nOnce complete, you'll receive an email notification with access to your inbox. Get ready to reclaim valuable business relationships!\n\nNo action is needed from you at this time - we'll notify you in your inbox when everything is ready.",
         "status": "processing"
     }
+
+@app.post("/login")
+async def login_endpoint(request: LoginRequest):
+
+    is_valid = login(request.email_address, request.password)
+    
+    if is_valid:
+        return {
+            "message": "Login successful",
+            "status": "success",
+            "user_id": request.email_address.split('@')[0]
+        }
+    else:
+        raise HTTPException(
+            status_code=401,
+            detail="Invalid email address or password"
+        )
 
 @app.post("/prospects")
 async def prospects_endpoint(request: ProspectsRequest):
