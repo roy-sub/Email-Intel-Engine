@@ -40,7 +40,7 @@ def add_user(email_address: str, password: str, user_id: str) -> bool:
         print(f"Error adding user to database: {str(e)}")
         return False
 
-def login(email_address: str, password: str) -> bool:
+def user_login(email_address: str, password: str) -> bool:
 
     try:
         # Path to users database file

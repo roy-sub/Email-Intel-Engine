@@ -3,6 +3,8 @@ openai
 fastapi 
 uvicorn 
 pydantic
+pinecone
 html2text
 beautifulsoup4
 pydantic[email]
+python-dotenv

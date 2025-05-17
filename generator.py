@@ -1,4 +1,4 @@
-from userManagement import login
+from userManagement import user_login
 from typing import Dict, Any, Tuple
 from userManagement import add_user
 from gptAnalysis import find_prospects
@@ -38,7 +38,7 @@ def onboarding(email_address: str, password: str) -> bool:
 def login(email_address: str, password: str) -> bool:
 
     try:
-        return login(email_address, password)
+        return user_login(email_address, password)
         
     except Exception as e:
         print(f"Error during login: {str(e)}")
