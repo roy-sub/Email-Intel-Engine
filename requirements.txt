@@ -1,4 +1,8 @@
 pytz
+openai
+fastapi 
+uvicorn 
+pydantic
 html2text
 beautifulsoup4
-openai
+pydantic[email]

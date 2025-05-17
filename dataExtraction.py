@@ -1,17 +1,17 @@
-from typing import Dict, Optional
-from datetime import datetime, timedelta
-import imaplib
-import email
-from email.header import decode_header
-from email.utils import parsedate_to_datetime
-import pytz
-import html2text  
-from bs4 import BeautifulSoup  
-from collections import defaultdict
-import json
 import re
-from pathlib import Path
+import json
+import pytz
 import time
+import email
+import imaplib
+import html2text 
+from pathlib import Path
+from bs4 import BeautifulSoup
+from typing import Dict, Optional
+from collections import defaultdict
+from email.header import decode_header
+from datetime import datetime, timedelta
+from email.utils import parsedate_to_datetime
 
 def decode_header_value(header_value: str) -> str:
     

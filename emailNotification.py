@@ -1,15 +1,15 @@
-import json
 import os
+import json
+import time
+import socket
+import smtplib
+import logging
 import datetime
+from typing import Optional
+from dotenv import load_dotenv
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from email.mime.application import MIMEApplication
-import smtplib
-import socket
-import time
-import logging
-from typing import Optional
-from dotenv import load_dotenv
 from constants import (
     MAIL_HOST, 
     MAIL_PORT, 

@@ -1,10 +1,10 @@
 import os
 import json
 import datetime
-from typing import List, Dict, Any, Optional
 from openai import OpenAI
 from pinecone import Pinecone
 from dotenv import load_dotenv
+from typing import List, Dict, Any, Optional
 
 # Load environment variables from .env file
 load_dotenv()
@@ -237,7 +237,6 @@ class EmailVectorizer:
         print(f"Successfully processed and stored {processed_count} email threads")
         return processed_count
 
-
 def vectorize_emails(
     email_data_file: str,
     user_id: str = "default_user",
@@ -252,7 +251,6 @@ def vectorize_emails(
         start_date=start_date,
         end_date=end_date
     )
-
 
 # if __name__ == "__main__":
 #     email_data_file = "database/transform_subhraturning@gmail.com.json"

@@ -1,10 +1,10 @@
 import os
 import json
 import datetime
-from typing import List, Dict, Any, Optional
 from openai import OpenAI
 from pinecone import Pinecone
 from dotenv import load_dotenv
+from typing import List, Dict, Any
 
 # Load environment variables from .env file
 load_dotenv()

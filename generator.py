@@ -47,14 +47,14 @@ def get_prospects(email_address: str, top_k: int = 10) -> Tuple[bool, Dict[str, 
         print(f"ERROR GETTING THE PROSPECT FOR : {email_address}\n\nREASON: {str(e)}")
         return False, {"error": str(e)}
 
-if __name__ == "__main__":
+# if __name__ == "__main__":
 
-    email = "subhraturning@gmail.com"
-    password = "your_password"
+#     email = "subhraturning@gmail.com"
+#     password = "your_password"
     
-    success = onboarding(email, password)
-    print(success)
+#     success = onboarding(email, password)
+#     print(success)
     
-    success, report = get_prospects(email)
-    print(success)
-    print(report)
+#     success, report = get_prospects(email)
+#     print(success)
+#     print(report)

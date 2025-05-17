@@ -1,5 +1,5 @@
-import json
 import os
+import json
 
 def transform_json(input_path):
 
