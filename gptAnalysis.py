@@ -262,16 +262,20 @@ def find_prospects(user_id: str = "default_user", top_k: int = 10) -> Dict[str, 
     
     # Save report to file
     os.makedirs("database", exist_ok=True)
-    with open(f"database/prospects_report_{user_id}.json", "w") as f:
+    report_file_path = f"database/prospects_report_{user_id}.json"
+    
+    with open(report_file_path, "w", encoding="utf-8") as f:
         json.dump(report, f, indent=2)
     
     print(f"Found {len(prospects)} potential prospects for user {user_id}")
-    print(f"Report saved to database/prospects_report_{user_id}.json")
+    print(f"Report saved to {report_file_path}")
     
-    return report
+    # Return both the report and the file path
+    return report_file_path, report
 
-if __name__ == '__main__':
+# if __name__ == '__main__':
     
-    user_id = "subhraturning"
-    report = find_prospects(user_id)
-    visualize(report)
+#     user_id = "subhraturning"
+#     report_file_path, report = find_prospects(user_id)
+#     print(report_file_path)
+#     visualize(report)

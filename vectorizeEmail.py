@@ -254,7 +254,7 @@ def vectorize_emails(
     )
 
 
-if __name__ == "__main__":
-    email_data_file = "database/transform_subhraturning@gmail.com.json"
-    user_id = "subhraturning"
-    vectorize_emails(email_data_file, user_id)
+# if __name__ == "__main__":
+#     email_data_file = "database/transform_subhraturning@gmail.com.json"
+#     user_id = "subhraturning"
+#     vectorize_emails(email_data_file, user_id)

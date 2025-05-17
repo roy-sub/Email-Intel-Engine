@@ -33,7 +33,7 @@ def transform_json(input_path):
     
     return output_path
 
-if __name__ == '__main__':
-    file_path = "database/subhraturning@gmail.com.json"
-    output_path = transform_json(file_path)
-    print(output_path)
+# if __name__ == '__main__':
+#     file_path = "database/subhraturning@gmail.com.json"
+#     output_path = transform_json(file_path)
+#     print(output_path)

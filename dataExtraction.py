@@ -537,10 +537,10 @@ class customEmailDataExtractor:
             print(f"Error: {str(e)}")
             return ""
 
-if __name__ == '__main__':
+# if __name__ == '__main__':
 
-    email_address = "subhraturning@gmail.com"
-    password = "iqgh oiay rzfz qqce"
-    fetcher = customEmailDataExtractor(email_address, password)
-    output_path = fetcher.fetch_email_threads()
-    print(f"output_path: {output_path}")
+#     email_address = "subhraturning@gmail.com"
+#     password = "iqgh oiay rzfz qqce"
+#     fetcher = customEmailDataExtractor(email_address, password)
+#     output_path = fetcher.fetch_email_threads()
+#     print(f"output_path: {output_path}")
