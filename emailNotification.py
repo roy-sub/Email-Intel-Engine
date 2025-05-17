@@ -9,17 +9,21 @@ import socket
 import time
 import logging
 from typing import Optional
+from dotenv import load_dotenv
 from constants import (
     MAIL_HOST, 
     MAIL_PORT, 
     MAIL_USERNAME, 
-    MAIL_PASSWORD, 
     MAIL_FROM_ADDRESS, 
     MAIL_FROM_NAME,
     MAX_RETRIES,
     RETRY_DELAY,
     CONNECTION_TIMEOUT
 )
+
+# Load environment variables from .env file
+load_dotenv()
+MAIL_PASSWORD = os.getenv("MAIL_PASSWORD")
 
 def send_account_ready_notification(recipient_email: str) -> bool:
 

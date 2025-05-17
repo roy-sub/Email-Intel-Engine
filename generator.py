@@ -5,7 +5,6 @@ from dataTransformation import transform_json
 from dataExtraction import customEmailDataExtractor
 from emailNotification import send_account_ready_notification, send_prospects_report
 
-
 def onboarding(email_address: str, password: str) -> bool:
 
     try:
